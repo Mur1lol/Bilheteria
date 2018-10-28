@@ -1,3 +1,3 @@
 # Diagrama de Classe
 
-<img src="ClassDiagram1.png">
+<img src="diagrama_tca.png">
