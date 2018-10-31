@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Confirmacao extends Model
 {
-    //
+	public function user(){
+		return $this->belogsTo( User::class);
+	}
+    
+
 }

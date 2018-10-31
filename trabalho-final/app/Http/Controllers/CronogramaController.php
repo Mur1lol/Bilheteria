@@ -12,74 +12,39 @@ class CronogramaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $cronogramas = Cronograma::all();
+        return view('cronograma.index', compact('cronogramas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('cronogramas.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $cronograma = new Cronograma;
+        $cronograma->fill($request->all());
+        $cronograma->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Cronograma  $cronograma
-     * @return \Illuminate\Http\Response
-     */
     public function show(Cronograma $cronograma)
     {
-        //
+        return view('cronogramas.show', compact('cronograma'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Cronograma  $cronograma
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Cronograma $cronograma)
     {
-        //
-    }
+        return view('cronogramas.edit', compact('cronograma'));    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cronograma  $cronograma
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Cronograma $cronograma)
     {
-        //
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Cronograma  $cronograma
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Cronograma $cronograma)
     {
-        //
+        
     }
 }
