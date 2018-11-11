@@ -2,16 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Cronograma;
 use Illuminate\Http\Request;
 
-class CronogramaController extends Controller
+class CronogramasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index() {
         $cronogramas = Cronograma::all();
         return view('cronograma.index', compact('cronogramas'));

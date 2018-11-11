@@ -4,10 +4,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/temporada', 'TemporadaController@index')
-	->name('temporada.index');
+Route::get('/temporadas', 'TemporadasController@index')
+	->name('temporadas.index');
 
+Route::get('/temporadas/criar', 'TemporadasController@create')
+    ->middleware('auth')
+    ->name('temporadas.create');
 
+Route::get('/temporadas/{temporada}', 'TemporadasController@show')
+    ->name('temporadas.show');
+
+Route::post('/temporadas', 'TemporadasController@store')
+    ->middleware('auth')
+    ->name('temporadas.store');
 
 
 Auth::routes();

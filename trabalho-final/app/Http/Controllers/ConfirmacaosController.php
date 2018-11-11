@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Confirmacao;
 use Illuminate\Http\Request;
 
-class ConfirmacaoController extends Controller
+class ConfirmacaosController extends Controller
 {
-
     public function index()
     {
         //

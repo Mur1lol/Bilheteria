@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCronogramaTable extends Migration
+class CreateConfirmacaosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateCronogramaTable extends Migration
      */
     public function up()
     {
-        Schema::create('cronograma', function (Blueprint $table) {
+        Schema::create('confirmacaos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('dia');
-            $table->time('saida');
-            $table->string('trajeto');
+            $table->date('data');
 
             $table->timestamps();
         });
@@ -30,6 +28,6 @@ class CreateCronogramaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cronograma');
+        Schema::dropIfExists('confirmacaos');
     }
 }

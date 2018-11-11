@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Temporada;
 use Illuminate\Http\Request;
+use App\Temporada;
 
-class TemporadaController extends Controller
+class TemporadasController extends Controller
 {
     public function index() {
         $temporadas = Temporada::all();
-        return view('temporada.index', compact('temporadas'));
+        return view('temporadas.index', compact('temporadas'));
     }
 
     
-    // public function create()
-    // {
-    //     return view('temporadas.create');
-    // }
+    public function create()
+    {
+        return view('temporadas.create');
+    }
 
     
-    // public function store(Request $request)
-    // {
-    //     $temporada = new Temporada();
-    //     $temporada->fill($request->all());
-    //     $temporada->save();
-    // }
+    public function store(Request $request)
+    {
+        $temporada = new Temporada();
+        $temporada->fill($request->all());
+        $temporada->save();
+    }
 
     // public function show(Temporada $temporada)
     // {

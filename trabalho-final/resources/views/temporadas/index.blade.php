@@ -9,7 +9,7 @@
 
             <div class="card text-center mb-3">
 				<div class="card-header">
-					Featured
+					{{ $temporada->descricao }}
 				</div>
 				<div class="card-body">
 					<h5 class="card-title">{{ $temporada->descricao }}</h5>
@@ -17,7 +17,7 @@
 					<a href="#" class="btn btn-primary">Go somewhere</a>
 				</div>
 				<div class="card-footer text-muted">
-					2 days ago
+					{{ $temporada->created_at->diffForHumans() }}
 				</div>
 			</div>
 
