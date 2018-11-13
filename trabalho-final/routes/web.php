@@ -7,7 +7,7 @@ Route::get('/', function () {
 Route::get('/temporadas', 'TemporadasController@index')
 	->name('temporadas.index');
 
-Route::get('/temporadas/criar', 'TemporadasController@create')
+Route::get('/temporadas/create', 'TemporadasController@create')
     ->middleware('auth')
     ->name('temporadas.create');
 

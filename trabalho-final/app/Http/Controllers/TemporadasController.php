@@ -13,23 +13,22 @@ class TemporadasController extends Controller
     }
 
     
-    public function create()
-    {
+    public function create() {
         return view('temporadas.create');
     }
 
     
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $temporada = new Temporada();
         $temporada->fill($request->all());
         $temporada->save();
+
+        return redirect(route('temporadas.index'));
     }
 
-    // public function show(Temporada $temporada)
-    // {
-    //     return view('temporadas.show', compact('temporada'));
-    // }
+    public function show(Temporada $temporada) {
+        return view('temporadas.show', compact('temporada'));
+    }
 
     
     // public function edit(Temporada $temporada)
