@@ -9,9 +9,10 @@
     <meta name="author" content="">
 
     <title>Temporadas</title>
-
+    
     {{ Html::style('blog/css/bootstrap.min.css') }}
     {{ Html::style('blog/css/blog.css') }}
+
   </head>
 
   <body>
@@ -96,6 +97,7 @@
     {{ Html::script('blog/js/jquery.min.js') }}
     {{ Html::script('blog/js/bootstrap.bundle.min.js') }}
     {{ Html::script('blog/js/blog.js') }}
+    {{ Html::script('blog/js/ajax.js') }}
 
   </body>
 

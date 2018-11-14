@@ -31,15 +31,21 @@ class TemporadasController extends Controller
     }
 
     
-    // public function edit(Temporada $temporada)
-    // {
-    //     //
-    // }
+    public function edit(Temporada $temporada)
+    {
+        return view('temporadas.edit', compact('temporada'));
+    }
 
-    // public function update(Request $request, Temporada $temporada)
-    // {
-    //     //
-    // }
+    public function update(Request $request, Temporada $temporada)
+    {
+    // if ($temporada->user == Auth::user()) {
+            $temporada->fill($request->all());
+            $temporada->save();
+
+            return redirect(route('temporadas.show', $temporada->id));
+        // } else
+            // abort(403);
+    }
 
     // public function destroy(Temporada $temporada)
     // {
