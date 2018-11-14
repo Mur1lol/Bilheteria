@@ -1,9 +1,5 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/temporadas', 'TemporadasController@index')
 	->name('temporadas.index');
 
@@ -21,5 +17,5 @@ Route::post('/temporadas', 'TemporadasController@store')
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')
+Route::get('/', 'TemporadasController@index')
 	->name('home');

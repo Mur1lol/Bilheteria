@@ -1,37 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.blog')
 
 @section('conteudo')
-<div class="container">
-    <h1>TEMPORADA</h1>
+	<h1 class="my-4">Temporada
+	    <small>Veja as disponiveis</small>
+	</h1>
     <div class="row">
         @foreach($temporadas as $temporada)
 
-            <!-- <div class="card text-center mb-3">
-				<div class="card-header">
-					{{ $temporada->descricao }}
+			<div class="card border-info col-md-3" style="max-width: 18rem; margin: 15px;">
+				<div class="card-header">{{ $temporada->descricao }}</div>
+				<div class="card-body text-info">
+					<h5 class="card-title">{{ $temporada->inicio }}</h5>
+					<p class="card-text">{{ $temporada->created_at->diffForHumans() }}</p>
+					{{ link_to_route(
+						'temporadas.show',
+						'Visualizar &rarr;',
+						[$temporada->id],
+						['class' => 'btn btn-primary']
+					) }}
 				</div>
-				<div class="card-body">
-					<h5 class="card-title">{{ $temporada->descricao }}</h5>
-					<p class="card-text">{{ $temporada->inicio }}</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-				<div class="card-footer text-muted">
-					{{ $temporada->created_at->diffForHumans() }}
-				</div>
-			</div> -->
-
-
-				<div class="card border-info col-md-4" style="max-width: 18rem; margin: 5px;">
-					<div class="card-header">{{ $temporada->descricao }}</div>
-					<div class="card-body text-info">
-						<h5 class="card-title">{{ $temporada->inicio }}</h5>
-						<p class="card-text">{{ $temporada->created_at->diffForHumans() }}</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
+			</div>
 
         @endforeach
 
     </div>
-</div>
 @endsection

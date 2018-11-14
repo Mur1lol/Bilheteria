@@ -8,6 +8,10 @@ body {
   }
 }
 
+.espacamento {
+	margin: 50px;
+}
+
 .editar {
   display: none;
 }
