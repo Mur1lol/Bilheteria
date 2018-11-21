@@ -27,6 +27,7 @@ class TemporadasController extends Controller
     }
 
     public function show(Temporada $temporada) {
+        $temporadas = Temporada::all();
         return view('temporadas.show', compact('temporada'));
     }
 

@@ -3,33 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Temporada;
+use App\Temporada;
 use App\Cronograma;
 use Auth;
 
 class CronogramasController extends Controller
 {
-    public function index() {
+    function index() {
         $cronogramas = Cronograma::all();
         return view('cronogramas.index', compact('cronogramas'));
     }
 
     
-    public function create() {
+    function create() {
         return view('cronogramas.create');
     }
 
     
-    public function store(Request $request) {
+    function store(Request $request, Temporada $temporada) {
         $cronograma = new Cronograma;
         $cronograma->fill($request->all());
         $cronograma->temporada()->associate($temporada);
         $cronograma->save();
 
-        return redirect(route('cronogramas.index'));
+        return redirect(route('temporadas.show', $temporada->id));
     }
 
-    public function show(Cronograma $cronograma) {
+    function show(Cronograma $cronograma) {
         return view('cronogramas.show', compact('cronograma'));
     }
 }

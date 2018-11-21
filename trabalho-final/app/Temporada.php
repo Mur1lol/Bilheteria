@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Temporada extends Model
 {
 
-	protected $fillable = ['inicio', 'descricao'];
+	protected $fillable = ['nome', 'inicio', 'descricao'];
 	
-	public function cronograna(){
-		return $this->hasMany(
-			Comentario::class);
+	public function cronogramas(){
+		return $this->hasMany(Cronograma::class);
 	}
 
 	public function user(){
