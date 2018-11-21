@@ -15,9 +15,15 @@ class CreateCronogramasTable extends Migration
     {
         Schema::create('cronogramas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('dia');
+            $table->string('dia');
             $table->time('saida');
             $table->string('trajeto');
+            $table->string('tipo');
+
+            $table->unsignedInteger('temporada_id');
+            $table->foreign('temporada_id')
+                  ->references('id')
+                  ->on('temporadas');
 
             $table->timestamps();
         });

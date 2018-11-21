@@ -22,6 +22,9 @@ Route::post('/temporadas', 'TemporadasController@store')
     ->middleware('auth')
     ->name('temporadas.store');
 
+Route::post('/temporadas/{temporada}/cronogramas', 'CronogramasController@store')
+    ->middleware('auth')
+    ->name('cronogramas.store');
 
 Auth::routes();
 

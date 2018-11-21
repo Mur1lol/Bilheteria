@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('form').submit(function(event) {
+	$('.pexquisa').submit(function(event) {
 		event.preventDefault();
 		busca();
 	});
