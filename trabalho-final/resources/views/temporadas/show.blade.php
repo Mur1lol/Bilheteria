@@ -2,49 +2,47 @@
 
 @section('conteudo')
 
-    <div>
-        <h1>{{ $temporada->descricao }}</h1>
+    <div class="my-4">
+        <h1>{{ $temporada->nome }}</h1>
+        <h3><small>{{ $temporada->descricao }}</small></h3>
     </div>
 
-    <div class="card my-4 escondido">
-        <h5 class="card-header">Novo Cronograma:</h5>
-        <div class="card-body">
+    <div class="card my-4">
+        <h5 class="card-header aparece">Novo Cronograma</h5>
+        <div class="card-body esconde">
             {!! Form::open(['route' => ['cronogramas.store', $temporada->id]]) !!}
-                <div class="form-group">  
-                    <!-- {!! Form::select('', array(
-                        'Segunda' => 'Segunda', 
-                        'Terca' => 'Terça', 
-                        'Quarta' => 'Quarta', 
-                        'Quinta' => 'Quinta', 
-                        'Sexta' => 'Sexta'), 
-                        ['class' => 'form-control']
-                    ) !!} -->
-                    <label>Dia da Semana</label>
-                    <select class="form-control" name="dia" required>
-                      <option value="Segunda">Segunda</option>
-                      <option value="Terca">Terça</option>
-                      <option value="Quarta">Quarta</option>
-                      <option value="Quinta">Quinta</option>
-                      <option value="Sexta">Sexta</option>
-                    </select>
-                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-group"> 
+                            <label for="dia">Dia da Semana</label>
+                            <select class="form-control" name="dia" id="dia" required>
+                              <option value="Segunda">Segunda</option>
+                              <option value="Terca">Terça</option>
+                              <option value="Quarta">Quarta</option>
+                              <option value="Quinta">Quinta</option>
+                              <option value="Sexta">Sexta</option>
+                            </select>
+                        </div>
 
-                <div class="form-group">
-                    <label>Saida</label>
-                    <input type="time" name="saida" class="form-control" required>
-                </div>
+                        <div class="form-group">
+                            <label for="saida">Saida</label>
+                            <input type="time" name="saida" id="saida" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label for="tipo">Tipo</label>
+                            <select class="form-control" name="tipo" id="tipo" required>
+                                <option value="Ida">Ida</option>
+                                <option value="Volta">Volta</option>
+                            </select>
+                        </div>
 
-                <div class="form-group">
-                    <label>Tipo</label>
-                    <select class="form-control" name="tipo" required>
-                        <option value="Ida">Ida</option>
-                        <option value="Volta">Volta</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Trajeto</label>
-                    <input type="text" name="trajeto" class="form-control" placeholder="Ex: A para B" required>
+                        <div class="form-group">
+                            <label for="trajeto">Trajeto</label>
+                            <input type="text" name="trajeto" id="trajeto" class="form-control" placeholder="Ex: A para B" required>
+                        </div>
+                    </div>
                 </div>
 
                 {!! Form::submit('Publicar', ['class' => 'btn btn-primary']) !!}
@@ -56,7 +54,7 @@
          @foreach($temporada->cronogramas as $cronograma)
             <div class="card border-dark text-center" style="margin-bottom: 15px; margin-top: 15px;">
                 <div class="card-header">
-                    {{ $cronograma->dia }}
+                    <h5 class="card-title" style="text-transform: uppercase;">{{ $cronograma->dia }}</h5>
                 </div>
                 <div class="card-body row">
                     <div class="col-md">
@@ -75,7 +73,16 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    <a href="#" class="btn btn-primary">Solicitar Viagem</a>
+                    {!! Form::open(['route' => ['confirmacaos.store', $cronograma->id]]) !!}
+                        {!! Form::submit('Solicitar Viagem', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::close() !!}
+                    
+                    {{ link_to_route(
+                        'temporadas.show',
+                        'Solicitar Viagem',
+                        [$cronograma->id],
+                        ['class' => 'btn btn-primary']
+                    ) }}
                 </div>
             </div>
         @endforeach

@@ -7,7 +7,7 @@
 
 	<form class="busca" action="" method="get">
 		<div class="input-group mb-3">
-			<input type="text" class="form-control busca-input" id="basic-url" aria-describedby="basic-addon3" name="filtro" value="">
+			<input type="text" class="form-control busca-input" id="basic-url" aria-describedby="basic-addon3" name="filtro" placeholder="Não Funciona!" value="">
 
 			<div class="input-group-append">
 				<button type="submit" class="input-group-text pexquisa">

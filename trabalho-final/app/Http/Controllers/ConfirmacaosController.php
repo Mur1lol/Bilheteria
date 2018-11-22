@@ -7,41 +7,27 @@ use App\Confirmacao;
 
 class ConfirmacaosController extends Controller
 {
-    public function index()
-    {
-        //
-    }
-
-    public function create()
-    {
-        //
-    }
-
-   
-    public function store(Request $request)
-    {
-        //
+    function index() {
+        $confirmacaos = Confirmacao::all();
+        return view('confirmacaos.index', compact('confirmacaos'));
     }
 
     
-    public function show(Confirmacao $confirmacao)
-    {
-        //
+    function create() {
+        return view('confirmacaos.create');
     }
 
     
-    public function edit(Confirmacao $confirmacao)
-    {
-        //
+    function store(Request $request, Cronograma $cronograma) {
+        $confirmacao = new Confirmacao;
+        $confirmacao->fill($request->all());
+        $confirmacao->cronograma()->associate($cronograma);
+        $confirmacao->save();
+
+        return redirect(route('temporadas.show', $cronograma->id));
     }
 
-    public function update(Request $request, Confirmacao $confirmacao)
-    {
-        //
-    }
-
-    public function destroy(Confirmacao $confirmacao)
-    {
-        //
+    function show(confirmacao $confirmacao) {
+        return view('confirmacaos.show', compact('confirmacao'));
     }
 }

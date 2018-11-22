@@ -17,6 +17,11 @@ class CreateConfirmacaosTable extends Migration
             $table->increments('id');
             $table->date('data');
 
+            $table->unsignedInteger('cronograma_id');
+            $table->foreign('cronograma_id')
+                  ->references('id')
+                  ->on('cronogramas');
+
             $table->timestamps();
         });
     }
