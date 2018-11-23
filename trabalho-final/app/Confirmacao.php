@@ -5,14 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Confirmacao extends Model{
-
-	protected $fillable = ['data', 'cronograma_id'];
+	protected $fillable = ['status'];
 	
-	public function user(){
-		return $this->belogsTo( User::class);
+	public function cronograma(){
+		return $this->belongsTo(Cronograma::class);
 	}
-    
-	public function cronogramas(){
-		retuurn $this->belongsTo(Cronograma::class);
+
+	public function user(){
+		return $this->belongsTo(User::class);
 	}
 }

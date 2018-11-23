@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cronograma extends Model {
 
-	protected $fillable = ['dia', 'saida', 'trajeto', 'tipo', 'temporada_id'];
+	protected $fillable = ['dia', 'saida', 'trajeto', 'tipo'];
 
 	public function temporada(){
 		return $this->belongsTo(Temporada::class);
 	}
 
-	public function confirmacao(){
+	public function confirmacaos(){
 		return $this->hasMany(confirmacao::class);
 	}
 	
 	public function user() {
-		return $this->belogsTo(User::class);
+		return $this->hasMany(User::class);
 	}
 }

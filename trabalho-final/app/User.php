@@ -28,9 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function artigos(){
-        
-        return $this->hasMany(
-            Artigo::class);
+    public function confirmacaos(){
+        return $this->hasMany(Confimacao::class);
     }
 }

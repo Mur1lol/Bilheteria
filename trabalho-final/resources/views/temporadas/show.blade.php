@@ -74,15 +74,12 @@
                 </div>
                 <div class="card-footer text-muted">
                     {!! Form::open(['route' => ['confirmacaos.store', $cronograma->id]]) !!}
+
+                        {!! Form::number('status', '0', ['class' => 'form-control', 'hidden']) !!}
+
                         {!! Form::submit('Solicitar Viagem', ['class' => 'btn btn-primary']) !!}
+
                     {!! Form::close() !!}
-                    
-                    {{ link_to_route(
-                        'temporadas.show',
-                        'Solicitar Viagem',
-                        [$cronograma->id],
-                        ['class' => 'btn btn-primary']
-                    ) }}
                 </div>
             </div>
         @endforeach

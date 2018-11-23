@@ -46,10 +46,17 @@
             @else
                 <li class="nav-item">
                     {{ link_to_route(
-                                    'temporadas.create',
-                                    'Publicar temporada',
-                                    [],
-                                    ['class' => 'nav-link']) }}
+                        'temporadas.create',
+                        'Publicar temporada',
+                        [],
+                        ['class' => 'nav-link']) }}
+                </li>
+                <li class="nav-item">
+                    {{ link_to_route(
+                        'confirmacaos.index',
+                        'Viagens',
+                        [],
+                        ['class' => 'nav-link']) }}
                 </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

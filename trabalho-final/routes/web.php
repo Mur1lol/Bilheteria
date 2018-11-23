@@ -7,16 +7,19 @@ Route::get('/temporadas/create', 'TemporadasController@create')
     ->middleware('auth')
     ->name('temporadas.create');
 
-Route::get('/temporadas/edit', 'TemporadasController@edit')
-    ->middleware('auth')
-    ->name('temporadas.edit');
+// Route::get('/temporadas/edit', 'TemporadasController@edit')
+//     ->middleware('auth')
+//     ->name('temporadas.edit');
 
-Route::put('/temporadas/{temporada}', 'temporadasController@update')
-    ->middleware('auth')
-    ->name('temporadas.update');
+// Route::put('/temporadas/{temporada}', 'temporadasController@update')
+//     ->middleware('auth')
+//     ->name('temporadas.update');
 
 Route::get('/temporadas/{temporada}', 'TemporadasController@show')
     ->name('temporadas.show');
+
+Route::get('/confirmacaos', 'ConfirmacaosController@index')
+    ->name('confirmacaos.index');
 
 Route::post('/temporadas', 'TemporadasController@store')
     ->middleware('auth')
@@ -26,7 +29,7 @@ Route::post('/temporadas/{temporada}/cronogramas', 'CronogramasController@store'
     ->middleware('auth')
     ->name('cronogramas.store');
 
-    Route::post('/temporadas/{temporada}/cronogramas/{cronograma}', 'ConfirmacaosController@store')
+Route::post('/temporadas/cronogramas/{cronograma}', 'ConfirmacaosController@store')
     ->middleware('auth')
     ->name('confirmacaos.store');
 
