@@ -7,48 +7,50 @@
         <h3><small>{{ $temporada->descricao }}</small></h3>
     </div>
 
-    <div class="card my-4">
-        <h5 class="card-header aparece">Novo Cronograma</h5>
-        <div class="card-body esconde">
-            {!! Form::open(['route' => ['cronogramas.store', $temporada->id]]) !!}
-                <div class="row">
-                    <div class="col-md">
-                        <div class="form-group"> 
-                            <label for="dia">Dia da Semana</label>
-                            <select class="form-control" name="dia" id="dia" required>
-                              <option value="Segunda">Segunda</option>
-                              <option value="Terca">Terça</option>
-                              <option value="Quarta">Quarta</option>
-                              <option value="Quinta">Quinta</option>
-                              <option value="Sexta">Sexta</option>
-                            </select>
-                        </div>
+    @if (Auth::user()->id == 1)
+        <div class="card my-4">
+            <h5 class="card-header aparece">Novo Cronograma</h5>
+            <div class="card-body esconde">
+                {!! Form::open(['route' => ['cronogramas.store', $temporada->id]]) !!}
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group"> 
+                                <label for="dia">Dia da Semana</label>
+                                <select class="form-control" name="dia" id="dia" required>
+                                    <option value="Segunda">Segunda</option>
+                                    <option value="Terca">Terça</option>
+                                    <option value="Quarta">Quarta</option>
+                                    <option value="Quinta">Quinta</option>
+                                    <option value="Sexta">Sexta</option>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="saida">Saida</label>
-                            <input type="time" name="saida" id="saida" class="form-control" required>
+                            <div class="form-group">
+                                <label for="saida">Saida</label>
+                                <input type="time" name="saida" id="saida" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-group">
+                                <label for="tipo">Tipo</label>
+                                <select class="form-control" name="tipo" id="tipo" required>
+                                    <option value="Ida">Ida</option>
+                                    <option value="Volta">Volta</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="trajeto">Trajeto</label>
+                                <input type="text" name="trajeto" id="trajeto" class="form-control" placeholder="Ex: A para B" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md">
-                        <div class="form-group">
-                            <label for="tipo">Tipo</label>
-                            <select class="form-control" name="tipo" id="tipo" required>
-                                <option value="Ida">Ida</option>
-                                <option value="Volta">Volta</option>
-                            </select>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="trajeto">Trajeto</label>
-                            <input type="text" name="trajeto" id="trajeto" class="form-control" placeholder="Ex: A para B" required>
-                        </div>
-                    </div>
-                </div>
-
-                {!! Form::submit('Publicar', ['class' => 'btn btn-primary']) !!}
-            {!! Form::close() !!}
+                    {!! Form::submit('Publicar', ['class' => 'btn btn-primary']) !!}
+                {!! Form::close() !!}
+            </div>
         </div>
-    </div>
+    @endif
 
     <div class="cronogramas">
          @foreach($temporada->cronogramas as $cronograma)

@@ -52,16 +52,13 @@
                         [],
                         ['class' => 'nav-link']) }}
                 </li>
+                @endif
                 <li class="nav-item">
                     {{ link_to_route(
                         'confirmacaos.index',
                         'Viagens',
                         [],
                         ['class' => 'nav-link']) }}
-                </li>
-                @endif
-                <li class="nav-item">
-                    <a href="#" class="nav-link"> Consultar seus dias e horários agendados.</a>
                 </li>
                 <li>
                     <a href="#" class="nav-link">Consultar o histórico de viagens das quais participou.</a>
