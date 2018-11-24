@@ -44,6 +44,7 @@
                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
             @else
+                @if (Auth::user()->id == 1)
                 <li class="nav-item">
                     {{ link_to_route(
                         'temporadas.create',
@@ -57,6 +58,22 @@
                         'Viagens',
                         [],
                         ['class' => 'nav-link']) }}
+                </li>
+                @endif
+                <li class="nav-item">
+                    <a href="#" class="nav-link"> Consultar seus dias e horários agendados.</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">Consultar o histórico de viagens das quais participou.</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Informar que não participará de uma viagem da qual o mesmo estava agendado para participar (cancelamento).</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Informar que participará de uma viagem da qual o mesmo não estava agendado para participar (solicitação).</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Verificar, durante o embarque, com base no agendamento padrão, cancelamentos e solicitações, quais são os demais colegas que deveriam estar presentes na viagem em questão.</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

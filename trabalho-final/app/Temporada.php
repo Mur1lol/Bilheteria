@@ -13,6 +13,10 @@ class Temporada extends Model
 		return $this->hasMany(Cronograma::class);
 	}
 
+	public function confirmacao() {
+		return $this->hasMany(Confirmacao::class);
+	}
+
 	public function user(){
 		return $this->belongsto(User::class);
 	}

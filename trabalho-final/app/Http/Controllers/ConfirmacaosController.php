@@ -16,17 +16,30 @@ class ConfirmacaosController extends Controller {
         return view('confirmacaos.index', compact('confirmacaos'));
     }
 
-    function store(Request $request, Cronograma $cronograma, Temporada $temporada) {
+    function store(Request $request, Temporada $temporada, Cronograma $cronograma) {
         $confirmacao = new Confirmacao;
         $confirmacao->fill($request->all());
         $confirmacao->user()->associate(Auth::user());
         $confirmacao->cronograma()->associate($cronograma);
         $confirmacao->save();
 
-        return redirect(route('temporadas.show', $temporada->id));
+        return redirect(route('temporadas.show', [$temporada->id, $cronograma->id]));
     }
 
     function show(Confirmacao $confirmacao) {
         return view('confirmacaos.show', compact('confirmacao'));
+    }
+
+    function edit(Confirmacao $confirmacao) {
+        return view('confirmacaos.edit', compact('confirmacao'));
+    }
+
+    function update(Request $request, Confirmacao $confirmacao) {
+        
+        // $confirmacao->status = $request->status;
+        $confirmacao->fill($request->all());
+        $confirmacao->save();
+
+        return redirect(route('confirmacaos.index', $confirmacao->id));
     }
 }

@@ -11,6 +11,10 @@ class Confirmacao extends Model{
 		return $this->belongsTo(Cronograma::class);
 	}
 
+	public function temporada() {
+		return $this->belongsTo(Temporada::class);
+	}
+
 	public function user(){
 		return $this->belongsTo(User::class);
 	}

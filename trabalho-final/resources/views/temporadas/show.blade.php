@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    {!! Form::open(['route' => ['confirmacaos.store', $cronograma->id]]) !!}
+                    {!! Form::open(['route' => ['confirmacaos.store', $temporada->id, $cronograma->id]]) !!}
 
                         {!! Form::number('status', '0', ['class' => 'form-control', 'hidden']) !!}
 

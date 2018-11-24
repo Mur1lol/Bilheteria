@@ -15,7 +15,7 @@ class CreateConfirmacaosTable extends Migration
     {
         Schema::create('confirmacaos', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('status');
+            $table->integer('status');
 
             $table->unsignedInteger('cronograma_id');
             $table->foreign('cronograma_id')

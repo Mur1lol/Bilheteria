@@ -21,12 +21,11 @@
     <div class="row temporadas">
         @foreach($temporadas as $temporada)
 
-			<div class="card border-info col-md-3" style=" margin: 15px;">
+			<div class="card border-info col-lg-3" style=" margin: 15px;">
 				<div class="card-header">{{ $temporada->nome }}</div>
 				<div class="card-body text-info">
 					<h5 class="card-title">{{ $temporada->descricao }}</h5>
 					<p class="card-text">{{ $temporada->inicio }}</p>
-					<!-- <p class="card-text">{{ $temporada->created_at->diffForHumans() }}</p> -->
 					
 					{{ link_to_route(
 						'temporadas.show',
