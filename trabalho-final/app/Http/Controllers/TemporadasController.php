@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Temporada;
+use Auth;
 
 class TemporadasController extends Controller
 {
@@ -38,13 +39,13 @@ class TemporadasController extends Controller
 
     public function update(Request $request, Temporada $temporada)
     {
-    // if ($temporada->user == Auth::user()) {
+        if (Auth::user()->id == 1) {
             $temporada->fill($request->all());
             $temporada->save();
 
             return redirect(route('temporadas.show', $temporada->id));
-        // } else
-            // abort(403);
+        } else
+            abort(403);
     }
 
     // public function destroy(Temporada $temporada)

@@ -26,8 +26,8 @@ class ConfirmacaosController extends Controller {
         return redirect(route('temporadas.show', [$temporada->id, $cronograma->id]));
     }
 
-    function show(Confirmacao $confirmacao) {
-        return view('confirmacaos.show', compact('confirmacao'));
+    function show(Cronograma $cronograma) {
+        return view('confirmacaos.show', compact('cronograma'));
     }
 
     function edit(Confirmacao $confirmacao) {

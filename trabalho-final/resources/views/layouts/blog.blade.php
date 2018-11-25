@@ -64,7 +64,7 @@
                 <li class="nav-item">
                     {{ link_to_route(
                         'confirmacaos.index',
-                        'Minhs Viagens',
+                        'Minhas Viagens',
                         [],
                         ['class' => 'nav-link']) }}
                 </li>

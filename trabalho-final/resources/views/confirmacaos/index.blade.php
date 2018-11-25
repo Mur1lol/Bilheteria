@@ -13,7 +13,7 @@
                         {{ link_to_route(
                             'confirmacaos.show',
                             'Lista de Passageiros',
-                            [$confirmacao->id],
+                            [$confirmacao->cronograma->id],
                             ['class' => 'btn btn-primary']) }}
                     </div>
                     <div class="card-body row">
@@ -78,7 +78,7 @@
                         {{ link_to_route(
                             'confirmacaos.show',
                             'Lista de Passageiros',
-                            [$confirmacao->id],
+                            [$confirmacao->cronograma->id],
                             ['class' => 'btn btn-primary']) }}
                     </div>
                     <div class="card-body row">

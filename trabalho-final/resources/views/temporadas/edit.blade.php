@@ -10,8 +10,12 @@
             {!! Form::open(['route' => ['temporadas.update', $temporada->id], 'method' => 'PUT']) !!}
 
             <div class="form-group">
+                {!! Form::label('nome', 'Nome') !!}
+                {!! Form::text('nome', $temporada->nome, ['class' => 'form-control', 'required']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('inicio', 'Inicio') !!}
-                {!! Form::date('inicio', '$temporada->inicio', ['class' => 'form-control', 'required']) !!}
+                {!! Form::date('inicio', $temporada->inicio, ['class' => 'form-control', 'required']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('descricao', 'Descrição') !!}
