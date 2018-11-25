@@ -31,7 +31,7 @@ Route::post('/temporadas/{temporada}/cronogramas/{cronograma}', 'ConfirmacaosCon
     ->middleware('auth')
     ->name('confirmacaos.store');
 
-Route::get('/confirmacaos/historico', 'ConfirmacaosController@show')
+Route::get('/confirmacaos/{confirmacao}', 'ConfirmacaosController@show')
     ->name('confirmacaos.show');
 
 Route::get('/confirmacaos/edit/{confirmacao}', 'ConfirmacaosController@edit')

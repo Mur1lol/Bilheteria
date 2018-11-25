@@ -52,26 +52,23 @@
                         [],
                         ['class' => 'nav-link']) }}
                 </li>
-                @endif
                 <li class="nav-item">
                     {{ link_to_route(
                         'confirmacaos.index',
-                        'Viagens',
+                        'Gerenciar Viagens',
                         [],
                         ['class' => 'nav-link']) }}
                 </li>
-                <li>
-                    <a href="#" class="nav-link">Consultar o histórico de viagens das quais participou.</a>
-                </li>
+
+                @else
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Informar que não participará de uma viagem da qual o mesmo estava agendado para participar (cancelamento).</a>
+                    {{ link_to_route(
+                        'confirmacaos.index',
+                        'Minhs Viagens',
+                        [],
+                        ['class' => 'nav-link']) }}
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Informar que participará de uma viagem da qual o mesmo não estava agendado para participar (solicitação).</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Verificar, durante o embarque, com base no agendamento padrão, cancelamentos e solicitações, quais são os demais colegas que deveriam estar presentes na viagem em questão.</a>
-                </li>
+                @endif
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
