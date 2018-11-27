@@ -7,6 +7,10 @@
         <h3><small>{{ $temporada->descricao }}</small></h3>
     </div>
 
+    @guest
+
+
+    @else
     @if (Auth::user()->id == 1)
         <div class="card my-4">
             <h5 class="card-header aparece">Novo Cronograma</h5>
@@ -22,6 +26,8 @@
                                     <option value="Quarta">Quarta</option>
                                     <option value="Quinta">Quinta</option>
                                     <option value="Sexta">Sexta</option>
+                                    <option value="Sabado">Sábado</option>
+                                    <option value="Domingo">Domingo</option>
                                 </select>
                             </div>
 
@@ -51,6 +57,7 @@
             </div>
         </div>
     @endif
+    @endguest
 
     <div class="cronogramas">
          @foreach($temporada->cronogramas as $cronograma)
