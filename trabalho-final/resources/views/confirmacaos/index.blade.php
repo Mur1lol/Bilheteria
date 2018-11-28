@@ -44,42 +44,44 @@
                             
                         </div>
                     </div>
-                    <div class="card-footer text-muted row">
-                        <div class="col-md">
-                            {!! Form::open(['route' => ['confirmacaos.update', $confirmacao->id], 'method' => 'PUT']) !!}
-                            <div class="form-group">
-                                {!! Form::text('status', '1', ['class' => 'form-control','placeholder' => '0, 1, 2', 'hidden']) !!}
+                    <div class="card-footer text-muted">
+                        <div class="row">
+                            <div class="col-md">
+                                {!! Form::open(['route' => ['confirmacaos.update', $confirmacao->id], 'method' => 'PUT']) !!}
+                                <div class="form-group">
+                                    {!! Form::text('status', '1', ['class' => 'form-control','placeholder' => '0, 1, 2', 'hidden']) !!}
+                                </div>
+                                {!! Form::submit('Confirmar', ['class' => 'btn btn-success']) !!}
+                            {!! Form::close() !!}
                             </div>
-                            {!! Form::submit('Confirmar', ['class' => 'btn btn-success']) !!}
-                        {!! Form::close() !!}
-                        </div>
-                        <!-- <div class="col-md">
-                            {!! Form::open(['route' => ['confirmacaos.update', $confirmacao->id], 'method' => 'PUT']) !!}
-                            <div class="form-group">
-                                {!! Form::text('status', '0', ['class' => 'form-control','placeholder' => '0, 1, 2', 'hidden']) !!}
+                            <!-- <div class="col-md">
+                                {!! Form::open(['route' => ['confirmacaos.update', $confirmacao->id], 'method' => 'PUT']) !!}
+                                <div class="form-group">
+                                    {!! Form::text('status', '0', ['class' => 'form-control','placeholder' => '0, 1, 2', 'hidden']) !!}
+                                </div>
+                                {!! Form::submit('Esperar', ['class' => 'btn btn-warning']) !!}
+                            {!! Form::close() !!}
+                            </div> -->
+                            <div class="col-md">
+                                {!! Form::open(['route' => ['confirmacaos.update', $confirmacao->id], 'method' => 'PUT']) !!}
+                                <div class="form-group">
+                                    {!! Form::text('status', '2', ['class' => 'form-control','placeholder' => '0, 1, 2', 'hidden']) !!}
+                                </div>
+                                {!! Form::submit('Cancelar', ['class' => 'btn btn-danger']) !!}
+                            {!! Form::close() !!}
                             </div>
-                            {!! Form::submit('Esperar', ['class' => 'btn btn-warning']) !!}
-                        {!! Form::close() !!}
-                        </div> -->
-                        <div class="col-md">
-                            {!! Form::open(['route' => ['confirmacaos.update', $confirmacao->id], 'method' => 'PUT']) !!}
-                            <div class="form-group">
-                                {!! Form::text('status', '2', ['class' => 'form-control','placeholder' => '0, 1, 2', 'hidden']) !!}
-                            </div>
-                            {!! Form::submit('Cancelar', ['class' => 'btn btn-danger']) !!}
-                        {!! Form::close() !!}
-                        </div>
 
-                        <div class="col-md">
-                            <div class="form-group">
-                                {!! Form::text('status', '0', ['class' => 'form-control','placeholder' => '0, 1, 2', 'hidden']) !!}
+                            <div class="col-md">
+                                <div class="form-group">
+                                    {!! Form::text('status', '0', ['class' => 'form-control','placeholder' => '0, 1, 2', 'hidden']) !!}
+                                </div>
+                                    
+                                {{ link_to_route(
+                                    'confirmacaos.show',
+                                    'Lista de Passageiros',
+                                    [$confirmacao->cronograma->id],
+                                    ['class' => 'btn btn-primary']) }}
                             </div>
-                                
-                            {{ link_to_route(
-                                'confirmacaos.show',
-                                'Lista de Passageiros',
-                                [$confirmacao->cronograma->id],
-                                ['class' => 'btn btn-primary']) }}
                         </div>
                     </div>
                 </div>

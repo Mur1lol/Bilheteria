@@ -13,7 +13,7 @@ class Cronograma extends Model {
 	}
 
 	public function confirmacaos(){
-		return $this->hasMany(confirmacao::class);
+		return $this->hasMany(Confirmacao::class);
 	}
 	
 	public function user() {
