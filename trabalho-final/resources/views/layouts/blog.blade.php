@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" type="image/x-png" href="https://images.vexels.com/media/users/3/128933/isolated/preview/b54944f7322722034cfda55e601b4f8d-travel-bus-round-icon-by-vexels.png">
 
-    <title>Temporadas</title>
+    <title>Viagens</title>
     
     {{ Html::style('blog/css/bootstrap.min.css') }}
     {{ Html::style('blog/css/blog.css') }}
@@ -23,7 +23,7 @@
       <div class="container">
         {{ link_to_route(
                 'home',
-                'Mur1lol',
+                'Viagens',
                 [],
                 ['class' => 'navbar-brand']) }}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

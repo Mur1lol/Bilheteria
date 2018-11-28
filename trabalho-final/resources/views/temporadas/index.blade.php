@@ -5,19 +5,6 @@
 	    <small>Veja as disponiveis</small>
 	</h1>
 
-	<form class="busca" action="" method="get">
-		<div class="input-group mb-3">
-			<input type="text" class="form-control busca-input" id="basic-url" aria-describedby="basic-addon3" name="filtro" placeholder="Não Funciona!" value="">
-
-			<div class="input-group-append">
-				<button type="submit" class="input-group-text pexquisa">
-					<!-- <span class="fas fa-search"></span> -->
-					<img src="http://www.stickpng.com/assets/images/59cfc4d2d3b1936210a5ddc7.png" style="width: 15px; height: auto">
-				</button>
-			</div>
-		</div>
-	</form>
-
     <div class="row temporadas">
         @foreach($temporadas as $temporada)
         	@guest
